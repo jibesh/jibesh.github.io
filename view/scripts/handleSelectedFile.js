@@ -1,6 +1,6 @@
 function readCSV(data) {
     let obj = $.csv.toObjects(data);
-    // TODO: Convert to object using jquery 
+    // TODO: Convert to object using jquery
     // console.log(obj);
     let table_text = '<tr> <thead> <th>Sequence</th> <th>Path</th> <th>Confidence</th> <th>Line numbers</th> </tr> </thead>';
     obj.sort((a, b) => parseFloat(b.Prediction) - parseFloat(a.Prediction));
@@ -28,7 +28,7 @@ function setCodeLocation(js_file_path) {
 
     let pre = document.querySelector('pre');
     var code = document.createElement('code');
-    code.className = 'language-none';
+    code.className = 'language-js';
 
     pre.textContent = '';
 
