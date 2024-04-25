@@ -10,7 +10,7 @@
 [selected_theme="theme_1"] {
     --backgroud_color: white;
     --navbar_backgroud_color: #D9736A;
-    /*--navbar_brand_color: white;*/
+    --navbar_brand_color: white;
     /*--body_font_color: #0D0D0D;*/
     --underline_color: #9ABF4B;
     --icon_symbol_color: #D9736A;
@@ -56,7 +56,7 @@
 [selected_theme="theme_6"] {
     --backgroud_color: white;
     --navbar_backgroud_color: #FFD964;
-    /*--navbar_brand_color: #03070D;*/
+    --navbar_brand_color: #E54252;
     --body_font_color: #0A1126;
     --underline_color: #E54252;
     --icon_symbol_color: #E54252;
@@ -65,10 +65,19 @@
 [selected_theme="theme_7"] {
     --backgroud_color: #F2F2F2;
     --navbar_backgroud_color: #F2F2F2;
-    --navbar_brand_color: #F2CB05;
+    --navbar_brand_color: #F2E205;
     --body_font_color: #0D0D0D;
     --underline_color: #F2E205;
     --icon_symbol_color: #1BAFBF;
+}
+
+[selected_theme="theme_8"] {
+    --backgroud_color: #BF9673;
+    --navbar_backgroud_color: #F2F2F2;
+    --navbar_brand_color: #F24150;
+    --body_font_color: #F2F2F2;
+    --underline_color: #F21905;
+    --icon_symbol_color: #402421;
 }
 
 body {
@@ -101,8 +110,18 @@ h2 {
     color: var(--navbar_brand_color);
     font-size: 40px;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 450;
 }
+
+.navbar-brand-family{
+    font-family: "Space Grotesk", sans-serif;
+    font-style: normal;
+    color: var(--body_font_color);
+    font-size: 40px;
+    font-optical-sizing: auto;
+    font-weight: 100;
+}
+
 
 .about-me {
     font-weight: 300;
