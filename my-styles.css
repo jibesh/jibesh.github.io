@@ -47,7 +47,7 @@
 [selected_theme="theme_5"] {
     --backgroud_color: #F2F2F2;
     --navbar_backgroud_color: #E2F26B;
-    /*--navbar_brand_color: #03070D;*/
+    /*--navbar_brand_color: #F2CB05;*/
     --body_font_color: #0A1126;
     --underline_color: #2ABFB0;
     --icon_symbol_color: #2ABFB0;
@@ -65,10 +65,10 @@
 [selected_theme="theme_7"] {
     --backgroud_color: #F2F2F2;
     --navbar_backgroud_color: #F2F2F2;
-    /*--navbar_brand_color: #03070D;*/
+    --navbar_brand_color: #F2CB05;
     --body_font_color: #0D0D0D;
-    --underline_color: #F2C335;
-    --icon_symbol_color: #F2ACCD;
+    --underline_color: #F2E205;
+    --icon_symbol_color: #1BAFBF;
 }
 
 body {
