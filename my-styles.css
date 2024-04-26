@@ -127,7 +127,8 @@ h2 {
 .about-me {
     font-weight: 300;
     /*background-color: #E7473C;*/
-    font-size: 1.2em;
+    font-size: x-large;
+    color: var(--body_font_color);
 }
 
 h5 {
@@ -193,6 +194,10 @@ footer {
     background-color: var(--underline_color);
 }
 
+a {
+    color: var(--underline_color);
+}
+
 /* Timeline */
 
 .timeline_containing_images {
@@ -234,11 +239,11 @@ footer {
 /* Social links */
 
 .social_links {
-    color: #0a53be;
+    color: var(--navbar_brand_color);
     font-size: 15px;
 }
 
 .pdf_icon{
-    color: #F23D4C;
+    color: var(--navbar_brand_color);
     font-size: x-large;
 }
