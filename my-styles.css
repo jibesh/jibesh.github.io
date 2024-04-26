@@ -240,10 +240,14 @@ a {
 
 .social_links {
     color: var(--navbar_brand_color);
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .pdf_icon{
     color: var(--navbar_brand_color);
     font-size: x-large;
+}
+
+.flag{
+    width: 25px;
 }
