@@ -111,7 +111,7 @@ h2 {
     color: var(--navbar_brand_color);
     font-size: 40px;
     font-optical-sizing: auto;
-    font-weight: 450;
+    font-weight: 100;
 }
 
 .navbar-brand-family{
@@ -120,9 +120,12 @@ h2 {
     color: var(--body_font_color);
     font-size: 40px;
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 400;
 }
 
+.nav-link:hover {
+    color: var(--navbar_brand_color);
+}
 
 .about-me {
     font-weight: 300;
