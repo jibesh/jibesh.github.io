@@ -17,7 +17,7 @@
     {
         "tag_id": "fse21award",
         "title": "Distinguished Paper Award",
-        "content": "Won distinguised paper award at the FSE'21 for our work on seeding semantic bugs.",
+        "content": "Won distinguised paper award 🏆 at FSE'21 for our work on seeding semantic bugs 🐞.",
         "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/pictures/fse_award.jpg",
         "date": "Jun. 2021"
     },
@@ -42,5 +42,28 @@
         "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/logo/esec-fse-2021.jpg",
         "flag_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/flags/greece.png",
         "date": "May 2021"
+    },
+    {
+        "tag_id": "csur20",
+        "title": "Survey on Compiler Testing",
+        "content": "Our survey on compiler testing methods gets published at ACM CSUR",
+        "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/pictures/csur.jpeg",
+        "date": "Dec. 2020"
+    },
+    {
+        "tag_id": "icse19",
+        "title": "ICSE Paper gets accepted",
+        "content": "Our paper on inferring JavaScript function types from Natural Language Informations gets accepted to ICSE'19",
+        "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/logo/icse2019_logo.png",
+        "flag_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/flags/canada.png",
+        "date": "Dec. 2018"
+    },
+    {
+        "tag_id": "icse18",
+        "title": "ICSE Paper gets accepted",
+        "content": "Our paper on finding and understanding conflicts among JavaScript libraries gets accepted to ICSE'18",
+        "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/logo/icse-2018-logo.jpg",
+        "flag_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/flags/sweden.png",
+        "date": "Dec. 2017"
     }
 ]
