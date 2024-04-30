@@ -5,6 +5,8 @@ const { log } = require('console');
 
 const pcloud_public_folder = "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp"
 
+let today = new Date();
+let currentDate = `${today.getDate()} ${today.toLocaleString('default', { month: 'long' })} ${today.getFullYear()}`;
 
 const classDetails = [{
     "year": "2019-2021",
@@ -107,6 +109,7 @@ let IndexFile = pug.compileFile('index.pug', { pretty: true });
 let indexstr = IndexFile({
     title_of_page: 'About Jibesh',
     page_name: "index.html",
+    currentDate:currentDate,
     classDetails: classDetails,
     PositionsExp: PositionsExp,
     news: news,
@@ -126,6 +129,7 @@ let ResearchFile = pug.compileFile('research.pug', { pretty: true });
 let researchstr = ResearchFile({
     title_of_page: 'Research',
     page_name: "research.html",
+    currentDate: currentDate,
     paper_list: papers
 });
 fs.writeFileSync(path.join(outDir, "research.html"), researchstr, {

@@ -231,6 +231,12 @@ a {
     justify-content: center;
 }
 
+#last_updated_text{
+    color: gray;
+    font-size: xx-small;
+    text-align: right;
+}
+
 .bibtex{
     font-family: "Space Mono", monospace;
     font-weight: 100;
