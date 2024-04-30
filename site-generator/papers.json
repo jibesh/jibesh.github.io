@@ -1,0 +1,150 @@
+[
+    {
+        "Title": "Analysis of ChatGPT on source code",
+        "id": "sadik2023analysis",
+        "Authors": "Ahmed Sadik, Antonello Ceravola, Frank Joublin, Jibesh Patra",
+        "Year": "2023",
+        "pdf_link": "https://arxiv.org/pdf/2306.00597.pdf",
+        "venue": "Unknown",
+        "Bibtex": [
+            "@article{sadik2023analysis,",
+            "  title={Analysis of ChatGPT on source code},",
+            "  author={Sadik, Ahmed and Ceravola, Antonello and Joublin, Frank and Patra, Jibesh},",
+            "  journal={arXiv preprint arXiv:2306.00597},",
+            "  year={2023}",
+            "}"
+        ]
+    },
+    {
+        "Title": "Nalin: Learning from Runtime Behavior to Find Name-Value Inconsistencies in Jupyter Notebooks",
+        "id": "nalin",
+        "Authors": "Jibesh Patra, Michael Pradel",
+        "Year": "2022",
+        "pdf_link": "https://arxiv.org/pdf/2112.06186.pdf",
+        "Venue": "International Conference on Software Engineering (ICSE)",
+        "Bibtex": [
+            "@inproceedings{10.1145/3510003.3510144,",
+            " author = {Patra, Jibesh and Pradel, Michael},",
+            " title = {Nalin: learning from runtime behavior to find name-value inconsistencies in jupyter notebooks},",
+            " year = {2022},",
+            " isbn = {9781450392211},",
+            " publisher = {Association for Computing Machinery},",
+            " address = {New York, NY, USA},",
+            " url = {https://doi.org/10.1145/3510003.3510144},",
+            " doi = {10.1145/3510003.3510144},",
+            " booktitle = {Proceedings of the 44th International Conference on Software Engineering},",
+            " pages = {1469–1481},",
+            " numpages = {13},",
+            " keywords = {identifier names, learning-based bug detection, neural software analysis},",
+            " location = {Pittsburgh, Pennsylvania},",
+            " series = {ICSE '22},",
+            "}"
+        ]
+    },
+    {
+        "Title": "Semantic bug seeding: a learning-based approach for creating realistic bugs",
+        "id": "semseed",
+        "Authors": "Jibesh Patra, Michael Pradel",
+        "Year": "2021",
+        "pdf_link": "https://software-lab.org/publications/fse2021.pdf",
+        "Venue": "Symposium on the Foundations of Software Engineering (FSE)",
+        "Bibtex": [
+            "@inproceedings{patra2021semantic,",
+            " title={Semantic bug seeding: a learning-based approach for creating realistic bugs},",
+            " author={Patra, Jibesh and Pradel, Michael},",
+            " booktitle={Proceedings of the 29th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering},",
+            " pages={906--918},",
+            " year={2021}",
+            "}"
+        ]
+    },
+    {
+        "Title": "A survey of compiler testing",
+        "id": "compiler_testing",
+        "Authors": "Junjie Chen, Jibesh Patra, Michael Pradel, Yingfei Xiong, Hongyu Zhang, Dan Hao, Lu Zhang",
+        "Year": "2020",
+        "pdf_link": "https://software-lab.org/publications/icse2019_NL2Type.pdf",
+        "Venue": "ACM Computing Surveys (CSUR)",
+        "Bibtex": [
+            "@article{chen2020survey,",
+            " title={A survey of compiler testing},",
+            " author={Chen, Junjie and Patra, Jibesh and Pradel, Michael and Xiong, Yingfei and Zhang, Hongyu and Hao, Dan and Zhang, Lu},",
+            " journal={ACM Computing Surveys (CSUR)},",
+            " volume={53},",
+            " number={1},",
+            " pages={1--36},",
+            " year={2020},",
+            " publisher={ACM New York, NY, USA}",
+            " }"
+        ]
+    },
+    {
+        "Title": "NL2Type: Inferring JavaScript Function Types from",
+        "id": "malik2019nl2type",
+        "Authors": "Rabee Sohail Malik, Jibesh Patra, Michael Pradel",
+        "Year": "2019",
+        "pdf_link": "https://www.software-lab.org/publications/icse2018.pdf",
+        "Venue": "International Conference on Software Engineering (ICSE)",
+        "Bibtex": [
+            "@inproceedings{malik2019nl2type,",
+            " title={Nl2type: inferring javascript function types from natural language information},",
+            " author={Malik, Rabee Sohail and Patra, Jibesh and Pradel, Michael},",
+            " booktitle={2019 IEEE/ACM 41st International Conference on Software Engineering (ICSE)},",
+            " pages={304--315},",
+            " year={2019},",
+            " organization={IEEE}",
+            "}"
+        ]
+    },
+    {
+        "Title": "ConflictJS: Finding and Understanding Conflicts Between JavaScript Libraries",
+        "id": "patra2018conflictjs",
+        "Authors": "Jibesh Patra, Pooja N Dixit, Michael Pradel",
+        "Year": "2018",
+        "pdf_link": "https://www.software-lab.org/publications/icse2018.pdf",
+        "Venue": "International Conference on Software Engineering (ICSE)",
+        "Bibtex": [
+            "@inproceedings{patra2018conflictjs,",
+            " title={Conflictjs: finding and understanding conflicts between javascript libraries},",
+            " author={Patra, Jibesh and Dixit, Pooja N and Pradel, Michael},",
+            " booktitle={Proceedings of the 40th International Conference on Software Engineering},",
+            " pages={741--751},",
+            " year={2018}",
+            "}"
+        ]
+    },
+    {
+        "Title": "Automatically Reducing Tree-Structured Test Inputs",
+        "id": "herfert2017automatically",
+        "Authors": "Satia Herfert, Jibesh Patra, Michael Pradel",
+        "Year": "2017",
+        "pdf_link": "https://software-lab.org/publications/TreeFuzz_TR_Nov2016.pdf",
+        "Venue": "International Conference on Automated Software Engineering (ASE)",
+        "Bibtex": [
+            "@inproceedings{herfert2017automatically,",
+            " title={Automatically reducing tree-structured test inputs},",
+            " author={Herfert, Satia and Patra, Jibesh and Pradel, Michael},",
+            " booktitle={2017 32nd IEEE/ACM International Conference on Automated Software Engineering (ASE)},",
+            " pages={861--871},",
+            " year={2017},",
+            " organization={IEEE}",
+            "}"
+        ]
+    },
+    {
+        "Title": "Learning to Fuzz: Application-Independent Fuzz Testing with Probabilistic, Generative Models of Input Data",
+        "id": "patra2016learning",
+        "Authors": "Jibesh Patra, Michael Pradel",
+        "Year": "2016",
+        "pdf_link": "https://software-lab.org/publications/TreeFuzz_TR_Nov2016.pdf",
+        "Venue": "Technical Report (TU Darmstadt)",
+        "Bibtex": [
+            "@article{patra2016learning,",
+            " title={Learning to fuzz: Application-independent fuzz testing with probabilistic, generative models of input data},",
+            " author={Patra, Jibesh and Pradel, Michael},",
+            " journal={TU Darmstadt, Department of Computer Science, Tech. Rep. TUD-CS-2016-14664},",
+            " year={2016}",
+            "}"
+        ]
+    }
+]

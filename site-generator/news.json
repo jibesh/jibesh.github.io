@@ -1,0 +1,46 @@
+[
+    {
+        "tag_id": "hrijoining",
+        "title": "Joined HRI",
+        "content": "Joined the Honda Research Institute, Offenbach am Main, Germany. Will be working on Software Engineering and Software Security.",
+        "image_src": "https://www.honda-ri.de/wp-content/uploads/2019/11/honda_hri_teambild-1.jpg",
+        "date": "Feb. 2023"
+    },
+    {
+        "tag_id": "icse21accpt",
+        "title": "ICSE Paper gets accepted",
+        "content": "Our paper on finding name-value inconsistencies has been accepted in ICSE'22.",
+        "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/logo/icse2022_logo.png",
+        "flag_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/flags/usa.png",
+        "date": "Dec. 2021"
+    },
+    {
+        "tag_id": "fse21award",
+        "title": "Distinguished Paper Award",
+        "content": "Won distinguised paper award at the FSE'21 for our work on seeding semantic bugs.",
+        "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/pictures/fse_award.jpg",
+        "date": "Jun. 2021"
+    },
+    {
+        "tag_id": "sapjoin",
+        "title": "Joined SAP",
+        "content": "Joined SAP SE, Walldorf, Germany. Will be working on JavaScript code analysis.",
+        "image_src": "https://e3mag.com/wp-content/uploads/2023/10/web_20230826_191536.jpg.webp",
+        "date": "May 2021"
+    },
+    {
+        "tag_id": "phddefnse",
+        "title": "PhD Defense 🎓",
+        "content": "Successfully defended my PhD",
+        "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/phd_defense.jpg",
+        "date": "May 2021"
+    },
+    {
+        "tag_id": "fse21accept",
+        "title": "FSE Paper gets accepted",
+        "content": "Our paper on semantic bug seeding gets accepted in FSE'21.",
+        "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/logo/esec-fse-2021.jpg",
+        "flag_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/flags/greece.png",
+        "date": "May 2021"
+    }
+]

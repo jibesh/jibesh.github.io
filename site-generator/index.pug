@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+    include head.pug
+    body
+        include nav.pug
+        div
+            // Who am I? 
+            section.container.p-5
+                .border-wrapper
+                    .d-md-flex.align-items-center.justify-content-between.rounded.m-1
+                        .row.about-me.p-3
+                            p 
+                                | I am a Software Systems Engineer at the Honda Research Institute (
+                                a(href="https://www.honda-ri.de/" target="_blank") HRI
+                                | ) Offenbach am Main, Germany where I am working on the applications of Large Language Models
+                                | (LLMs) on Software Engineering and Software Security problems.
+                                | I completed my PhD from the 
+                                a(href="https://www.uni-stuttgart.de/en/" target="_blank") University of Stuttgart
+                                | , Germany on 
+                                a(href="https://elib.uni-stuttgart.de/bitstream/11682/12010/1/thesis.pdf" target="_blank") analyzing code corpora to improve the correctness and reliability of programs
+                                |  advised by 
+                                a(href="https://www.software-lab.org/people/Michael_Pradel.html" target="_blank") Prof. Michael Pradel.
+                                |  During my PhD, I spent two wonderful summers interning at <a
+                                a(href="https://www.microsoft.com/en-us/research/" target="_blank") Microsoft Research
+                                |  Cambridge and Bangalore respectively. My research interests are broadly in Program Analysis, AI for Software Engineering and Software Security.
+                            p
+                                | You can check my latest CV 
+                                a(href=`${cv_link}`, target="_blank") 
+                                    i.fas.fa-regular.fa-circle-down
+                            div
+                                p Links: 
+                                    a(class="p-1" href="https://scholar.google.de/citations?user=ITkHkhsAAAAJ&hl=en" target="_blank")
+                                        i.fas.fa-brands.fa-google-scholar.social_links
+                                    a(class="p-1" href="https://www.linkedin.com/in/jibeshpatra" target="_blank")
+                                        i.fas.fa-brands.fa-linkedin.social_links
+                                    a(class="p-1" href="https://www.facebook.com/jibesh.patra" target="_blank")
+                                        i.fas.fa-brands.fa-facebook.social_links
+                                    a(class="p-1" href="mailto:jibesh.patra@gmail.com" target="_blank")
+                                        i.fas.fa-solids.fa-envelope.social_links
+                        img.d-none.d-lg-block.img-fluid.m-2.rounded(src=`${profile_image}`, alt="Jibesh profile picture")
+                        img.d-lg-none.img-fluid.m-4.rounded(src=`${profile_image_cr}`, alt="Jibesh profile picture")
+            // Teaching & Positions and Experiences
+            section.container-xl.p-5.align-items-start
+                .row
+                    .col-lg-9(style="padding-right: 4%;")
+                        include teaching.pug
+                        include positionsAndExperiences.pug
+                    .col-lg-3#news_style
+                        include news.pug
+        include footer.pug

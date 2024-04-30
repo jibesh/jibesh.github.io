@@ -1,0 +1,16 @@
+// Navbar 
+nav.navbar.navbar-expand-lg.navbar-lite.sticky-top.py-3
+  div.container
+    span.navbar-brand JIBESH 
+      span.navbar-brand-family PATRA
+    ul.navbar-nav.ms-auto
+      li.nav-item
+        if page_name == "index.html"
+          a.nav-link.active(aria-current='page' href="index.html") HOME
+        else
+          a.nav-link(href="index.html") HOME
+      li.nav-item
+        if page_name == "research.html"
+          a.nav-link.active(aria-current='page' href="research.html") RESEARCH
+        else
+          a.nav-link(href="research.html") RESEARCH

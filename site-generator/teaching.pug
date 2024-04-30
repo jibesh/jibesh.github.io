@@ -1,0 +1,7 @@
+h2 Teaching 
+    i.fas.fa-thin.fa-person-chalkboard.icon-symbols
+each clsData in classDetails
+    .row.p-3
+        .col-2= clsData["year"]
+        .col-2= clsData["id"]
+        .col-8= clsData["course name"]

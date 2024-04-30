@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+include head.pug
+body
+    include nav.pug
+    section.container.p-5
+        h1 Research Papers
+        .table-responsive-md.mt-4
+            table.table.table-light.table-hover.align-middle.bg-white
+                caption Research Paper
+                thead.bg-light
+                    tr
+                        th.p-3
+                        th.p-4 Title
+                        th.p-4.text-center Authors
+                        th.p-3.text-center Year
+                tbody
+                    each paper in paper_list
+                        tr
+                            td.text-nowrap
+                                a.btn.btn-outline-dark-green.btn-sm.p-1.m-0.waves-effect(href= `${paper["pdf_link"]}` target="_blank" type="button")
+                                    i.fas.fa-regular.fa-file-pdf.pdf_icon
+                            td.text-start
+                                p: strong= paper["Title"]
+                                if paper["Venue"] !== "Unknown"
+                                    p= paper["Venue"]
+                                a(href= `#${paper["id"]}` data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls= `${paper["id"]}`) BibTex
+                                pre.collapse.bibtex.p-0.user-select-all.w-75(id= `${paper["id"]}`)= paper["Bibtex"].join("\n")
+                            td
+                                p= paper["Authors"]
+                            td 
+                                p= paper["Year"]
+    include footer.pug
