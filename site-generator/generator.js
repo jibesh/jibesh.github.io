@@ -25,7 +25,7 @@ const PositionsExp = [{
     "alt_text": "HRI",
     "institue": "Honda Research Institute",
     "flag_src": `${pcloud_public_folder}/flags/germany.png`,
-    "time": "Feb. 2023 - May. 2024",
+    "time": "Feb. 2023 - May 2024",
     "position_place": "Systems Software Engineer, Offenbach am Main, Germany",
 }, {
     "logo_src": `${pcloud_public_folder}/logo/sap.png`,
@@ -104,11 +104,12 @@ const papers = JSON.parse(fs.readFileSync("papers.json", "utf-8"))
 
 const outDir = "../"
 
-let IndexFile = pug.compileFile('index.pug', { pretty: true });
+let IndexFile = pug.compileFile('index.pug', { pretty: false });
 
 let indexstr = IndexFile({
     title_of_page: 'About Jibesh',
     page_name: "index.html",
+    include_flags_for_postions: false,
     currentDate:currentDate,
     classDetails: classDetails,
     PositionsExp: PositionsExp,
@@ -125,9 +126,9 @@ fs.writeFileSync(path.join(outDir, "index.html"), indexstr, {
     flag: "w+"
 });
 
-let ResearchFile = pug.compileFile('research.pug', { pretty: true });
+let ResearchFile = pug.compileFile('research.pug', { pretty: false });
 let researchstr = ResearchFile({
-    title_of_page: 'Research',
+    title_of_page: 'Research of Jibesh',
     page_name: "research.html",
     currentDate: currentDate,
     paper_list: papers

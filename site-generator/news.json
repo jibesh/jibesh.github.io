@@ -18,7 +18,7 @@
         "tag_id": "fse21award",
         "title": "Distinguished Paper Award",
         "content": "Won distinguised paper award 🏆 at FSE'21 for our work on seeding semantic bugs 🐞.",
-        "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/pictures/fse_award.jpg",
+        "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/pictures/fse_award.png",
         "date": "Jun. 2021"
     },
     {
@@ -65,5 +65,13 @@
         "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/logo/icse-2018-logo.jpg",
         "flag_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/flags/sweden.png",
         "date": "Dec. 2017"
+    },
+    {
+        "tag_id": "ase17",
+        "title": "ASE Paper gets accepted",
+        "content": "Our paper on reducing tree-structured test inputs gets accepted to ASE'17",
+        "image_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/logo/ase2017_logo.png",
+        "flag_src": "https://filedn.eu/lb9zswHPkyQBL9nU0dIVDrp/flags/usa.png",
+        "date": "Jul. 2017"
     }
 ]

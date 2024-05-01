@@ -6,6 +6,7 @@ ul.timeline_containing_images
             span.timeline_image
                 img.d-sm-block.my-1.logo(src= `${position["logo_src"]}` alt= `${position["alt_text"]}`)
             h5= position["institue"]
-            img.flag(src= `${position["flag_src"]}`)
+            if include_flags_for_postions
+                img.flag(src= `${position["flag_src"]}`)
             p.text-muted.mb-2= position["time"]
             p.text-muted.German= position["position_place"]
