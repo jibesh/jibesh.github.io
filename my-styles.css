@@ -190,6 +190,7 @@ hr {
 
 footer {
     background-color: var(--footer-background_color);
+    color: var(--navbar_backgroud_color);
 }
 
 a {
