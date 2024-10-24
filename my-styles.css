@@ -126,7 +126,7 @@ h5 {
 
 }
 
-th {
+th, h4 {
     text-decoration-line: underline;
     text-underline-offset: 0.3em;
     text-decoration-color: var(--underline_color);
@@ -258,4 +258,8 @@ a {
 
 .flag{
     width: 25px;
+}
+
+.plot_img{
+    width: 35%;
 }
