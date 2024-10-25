@@ -263,3 +263,8 @@ a {
 .plot_img{
     width: 35%;
 }
+
+.group_members_profile{
+    max-width: 100px; 
+    max-height: 50px;
+}
