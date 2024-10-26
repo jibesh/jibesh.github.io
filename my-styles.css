@@ -10,6 +10,16 @@
     --footer-background_color: black;
 }
 
+[selected_theme="hint-of-red"] {
+    --backgroud_color: white;
+    --navbar_backgroud_color: white;
+    --navbar_brand_color: #0D0D0D;
+    --body_font_color: #0D0D0D;
+    --underline_color: #ed1c24;
+    --icon_symbol_color: #0D0D0D;
+    --footer-background_color: #1e1d1d;
+}
+
 [selected_theme="red"] {
     --backgroud_color: white;
     --navbar_backgroud_color: white;
@@ -194,7 +204,8 @@ footer {
 }
 
 a {
-    color: var(--underline_color);
+    /* color: var(--underline_color); */
+    color: var(--navbar_brand_color);
 }
 
 /* Timeline */
@@ -265,6 +276,7 @@ a {
 }
 
 .group_members_profile{
-    max-width: 50px; 
-    max-height: 25px;
+    max-width: 75px; 
+    max-height: 37.5px;
+    filter: grayscale(100%);
 }

@@ -1,6 +1,6 @@
 function select_theme_based_on_time() {
     let current_hr = (new Date()).getHours();
-    let selected_theme = "red";
+    let selected_theme = "hint-of-red";
 
     // Time based theme
     // if (current_hr >= 6 && current_hr < 18)  {
