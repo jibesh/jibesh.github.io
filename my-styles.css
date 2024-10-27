@@ -30,6 +30,16 @@
     --footer-background_color: #1e1d1d;
 }
 
+[selected_theme="hint-of-blue"] {
+    --backgroud_color: white;
+    --navbar_backgroud_color: white;
+    --navbar_brand_color: #0D0D0D;
+    --body_font_color: #0D0D0D;
+    --underline_color: #0000fe;
+    --icon_symbol_color: #0D0D0D;
+    --footer-background_color: #0D0D0D;
+}
+
 [selected_theme="blue"] {
     --backgroud_color: white;
     --navbar_backgroud_color: white;
