@@ -6,7 +6,7 @@ function select_theme_based_on_time() {
 
     // Time based theme
     if (current_hr >= 6 && current_hr < 18) {
-        selected_theme = given_themes[0];
+        selected_theme = given_themes[1];
     }
 
 
