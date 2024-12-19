@@ -26,8 +26,8 @@ function plot_grade_dist(dt) {
         },
         showlegend: false
     };
-
-    Plotly.newPlot('plot', dt, layout);
+    var config = {responsive: true}
+    Plotly.newPlot('plot', dt, layout, config);
 }
 
 let plot_div = document.getElementById('plot');
