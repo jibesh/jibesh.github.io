@@ -290,3 +290,7 @@ a {
     max-height: 100px;
     filter: grayscale(100%);
 }
+
+#plot{
+    width: 50%;
+}
