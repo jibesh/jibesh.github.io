@@ -292,5 +292,5 @@ a {
 }
 
 #plot{
-    width: 600px;
+    min-width: 70%;
 }
