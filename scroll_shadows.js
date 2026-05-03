@@ -3,7 +3,7 @@ function create_trigger() {
         trigger: ".shadow_trigger",
         start: "top top",
         end: "top bottom",
-        scrub: 1,
+        scrub: true,
         animation: gsap.to("nav", { css: { className: 'navbar shadow navbar-expand-lg navbar-light bg-light sticky-top py-3' }, immediateRender: false }),
         toggleActions: "restart none none reverse",
         preventOverlaps: true,
@@ -17,8 +17,9 @@ create_trigger();
 
 
 function selected_theme_color(){
-    let selected_color_hex = getComputedStyle(document.body).getPropertyValue('--navbar_brand_color');
     let divHex = document.getElementById("hex_color");
+    if (!divHex) return;
+    let selected_color_hex = getComputedStyle(document.body).getPropertyValue('--navbar_brand_color');
     divHex.style = `color:${selected_color_hex}`;
     divHex.textContent = `🖌️ ${selected_color_hex} `;
 }
