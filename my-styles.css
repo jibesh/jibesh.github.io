@@ -95,6 +95,11 @@ h2 {
     text-decoration-thickness: 1px;
 }
 
+@keyframes navbar-brand-fadein {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 .navbar-brand {
     font-family: var(--font_family);
     font-style: normal;
@@ -102,6 +107,7 @@ h2 {
     font-size: 30px;
     font-optical-sizing: auto;
     font-weight: 100;
+    animation: navbar-brand-fadein 0.6s ease-out both;
 }
 
 .navbar-brand:hover{
@@ -338,7 +344,7 @@ a {
 }
 
 .pdf_icon{
-    color: var(--navbar_brand_color);
+    color: red !important;
     font-size: x-large;
 }
 
