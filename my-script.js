@@ -14,3 +14,21 @@ function select_theme_based_on_time() {
 }
 
 select_theme_based_on_time();
+
+// Gallery lightbox — keyboard navigation
+document.addEventListener('keydown', function (e) {
+    var active = document.querySelector('.lightbox:target');
+    if (!active) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        var btn = active.querySelector('.lb-next');
+        if (btn) btn.click();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        var btn = active.querySelector('.lb-prev');
+        if (btn) btn.click();
+    } else if (e.key === 'Escape') {
+        e.preventDefault();
+        active.querySelector('.lightbox-bg').click();
+    }
+});
