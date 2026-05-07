@@ -373,144 +373,250 @@ a {
     min-width: 70%;
 }
 
-/* ── Gallery ── */
+/* ── Member-list subsections (Current Members + Alumni) ── */
+.subsection-head {
+    font-family: var(--font_family_mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.55);
+    margin-top: 1.6rem;
+    margin-bottom: 0.4rem;
+    text-decoration: none;
+}
+
+.member-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.member-table td,
+.member-table th {
+    overflow-wrap: anywhere;
+}
+
+.member-table thead th {
+    font-family: var(--font_family_mono);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.4);
+    text-decoration: none;       /* override global th underline */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 0.35rem;
+}
+
+/* ── Gallery (modern carousel) ── */
 .gallery-main {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
+    padding: 2rem 1.25rem 4rem;
 }
 
-.gallery-section {
-    margin-bottom: 3rem;
+.album {
+    margin-bottom: 3.5rem;
+    scroll-margin-top: 90px;
 }
 
-.gallery-year {
-    font-size: 1.1rem;
-    letter-spacing: 0.15em;
+.album-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 0.5rem;
+}
+
+.album-title {
+    font-size: 1.05rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    margin-bottom: 1.2rem;
+    margin: 0;
+    text-decoration: none;
 }
 
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 6px;
+.album-count {
+    font-family: var(--font_family_mono);
+    font-size: 0.78rem;
+    color: rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.05em;
 }
 
-.photo-thumb {
-    display: block;
+/* Carousel container */
+.carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Stack of slides — only one is visible at a time */
+.slides {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #0f0f10;
+    border-radius: 14px;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
-    background: #f0f0f0;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
 }
 
-.photo-thumb img {
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Default: first slide of each album visible when nothing in this album is targeted */
+.album:not(:has(.slide:target)) .slide:first-child {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Targeted slide visible */
+.slide:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: none;
+}
+
+/* Arrow buttons overlaid on the slide */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 50%;
+    font-size: 1.6rem;
+    line-height: 1;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    user-select: none;
+    z-index: 2;
+}
+
+.slides:hover .nav-arrow,
+.slide:target .nav-arrow {
+    opacity: 0.9;
+}
+
+.nav-arrow:hover {
+    opacity: 1;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.nav-prev { left: 12px; }
+.nav-next { right: 12px; }
+
+/* Counter badge */
+.slide-counter {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    color: rgba(255, 255, 255, 0.92);
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-family: var(--font_family_mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Thumbnail strip */
+.thumbs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 4px 2px 8px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+.thumbs::-webkit-scrollbar { height: 6px; }
+.thumbs::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
+
+.thumb {
+    flex: 0 0 auto;
+    width: 76px;
+    height: 56px;
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0.55;
+    transition: opacity 0.2s ease, transform 0.2s ease, outline-color 0.2s ease;
+    outline: 2px solid transparent;
+    scroll-snap-align: start;
+}
+
+.thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.25s ease, opacity 0.25s ease;
     filter: none;
 }
 
-.photo-thumb:hover img {
-    transform: scale(1.03);
-    opacity: 0.9;
-}
-
-/* Pure-CSS lightbox via :target */
-.lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.92);
-    z-index: 1060;
-}
-
-.lightbox:target {
-    display: block;
-}
-
-/* Full-screen transparent background — click to close */
-.lightbox-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    cursor: zoom-out;
-}
-
-/* Close × button */
-.lightbox-close {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    z-index: 3;
-    color: #fff;
-    font-size: 2.2rem;
-    line-height: 1;
-    text-decoration: none;
-    opacity: 0.6;
-    transition: opacity 0.15s;
-}
-
-.lightbox-close:hover {
+.thumb:hover {
     opacity: 1;
-    color: #fff;
+    transform: translateY(-2px);
 }
 
-/* Content row: ‹ image › */
-.lightbox-content {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    pointer-events: none;   /* gaps are click-through to .lightbox-bg */
+/* Highlight active thumb (matches targeted slide's index in DOM) */
+.album:not(:has(.slide:target)) .thumb:first-child,
+.slide:target ~ nav.thumbs .thumb {
+    /* fallback noop — actual active styling below uses :has */
 }
 
-.lightbox-content > * {
-    pointer-events: auto;
-}
-
-.lightbox-content img {
-    max-width: 82vw;
-    max-height: 88vh;
-    object-fit: contain;
-    box-shadow: 0 4px 40px rgba(0,0,0,0.5);
-    filter: none;
-    flex-shrink: 1;
-}
-
-/* Arrow buttons */
-.lb-arrow {
-    color: #fff;
-    font-size: 2.8rem;
-    line-height: 1;
-    text-decoration: none;
-    opacity: 0.45;
-    transition: opacity 0.15s;
-    user-select: none;
-    flex-shrink: 0;
-    width: 2.5rem;
-    text-align: center;
-}
-
-.lb-arrow:hover {
+/* Active thumb when its corresponding slide is :target.
+   We can't directly select ":nth thumb whose href matches :target",
+   but we can highlight via :focus and on hover, and use :target on
+   the same id pattern via [href$="#id"] when one slide is targeted. */
+.thumb:focus,
+.thumb.is-active {
     opacity: 1;
-    color: #fff;
+    outline-color: var(--underline_color);
 }
 
-.lb-spacer {
-    display: inline-block;
-    width: 2.5rem;
-    flex-shrink: 0;
-}
-
-@media (max-width: 600px) {
-    .photo-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 4px;
+/* Mobile tweaks */
+@media (max-width: 700px) {
+    .gallery-main { padding: 1.25rem 0.75rem 3rem; }
+    .slides { aspect-ratio: 4 / 3; border-radius: 10px; }
+    .nav-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+        opacity: 0.85;     /* always visible on touch */
     }
+    .nav-prev { left: 8px; }
+    .nav-next { right: 8px; }
+    .thumb { width: 60px; height: 44px; }
+    .album-header { flex-wrap: wrap; }
 }
