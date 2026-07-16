@@ -1,66 +1,41 @@
-/* Libre Caslon Display — headlines & page brands */
+/* Hanken Grotesk — headings, body & UI (free stand-in for Cornell's TT Commons Pro) */
 @font-face {
-  font-family: 'Libre Caslon Display';
+  font-family: 'Hanken Grotesk';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('libre-caslon-display-latin-400-normal.woff2') format('woff2');
-}
-
-/* Libre Caslon Text — body copy */
-@font-face {
-  font-family: 'Libre Caslon Text';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('libre-caslon-text-latin-400-normal.woff2') format('woff2');
+  src: url('hanken-grotesk-latin-400-normal.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Libre Caslon Text';
+  font-family: 'Hanken Grotesk';
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('libre-caslon-text-latin-400-italic.woff2') format('woff2');
+  src: url('hanken-grotesk-latin-400-italic.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Libre Caslon Text';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('libre-caslon-text-latin-700-normal.woff2') format('woff2');
-}
-
-/* Josefin Sans — nav, labels, dates, UI */
-@font-face {
-  font-family: 'Josefin Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('josefin-sans-latin-400-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Josefin Sans';
+  font-family: 'Hanken Grotesk';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('josefin-sans-latin-500-normal.woff2') format('woff2');
+  src: url('hanken-grotesk-latin-500-normal.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Josefin Sans';
+  font-family: 'Hanken Grotesk';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('josefin-sans-latin-600-normal.woff2') format('woff2');
+  src: url('hanken-grotesk-latin-600-normal.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Josefin Sans';
+  font-family: 'Hanken Grotesk';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('josefin-sans-latin-700-normal.woff2') format('woff2');
+  src: url('hanken-grotesk-latin-700-normal.woff2') format('woff2');
 }
 
-/* JetBrains Mono — BibTeX / code only */
+/* JetBrains Mono — nav / labels (Cornell-style mono accents) & BibTeX */
 @font-face {
   font-family: 'JetBrains Mono';
   font-style: normal;
