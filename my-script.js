@@ -1,19 +1,20 @@
-function select_theme_based_on_time() {
-    let current_hr = (new Date()).getHours();
-    let given_themes = ["hint-of-blue", "hint-of-red"]; // "red", "orange", "blue", "purple", 
-    // let selected_theme = given_themes[[Math.floor(Math.random() * given_themes.length)]] // Random theme
-    let selected_theme = given_themes[0];
-
-    // Time based theme
-    if (current_hr >= 6 && current_hr < 18) {
-        selected_theme = given_themes[1];
+// Sticky header — hairline + shadow once the page is scrolled.
+(function () {
+    function init() {
+        var header = document.querySelector('.site-header');
+        if (!header) return;
+        function onScroll() {
+            header.classList.toggle('is-scrolled', window.scrollY > 8);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
     }
-
-
-    document.querySelector("html").setAttribute("selected_theme", selected_theme);
-}
-
-select_theme_based_on_time();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
 
 // Gallery carousel — keyboard navigation.
 // Active slide = the :target slide; if none, the most-visible album's first slide.

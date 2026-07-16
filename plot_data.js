@@ -8,7 +8,7 @@ function plot_grade_dist(dt) {
             title: {
                 text: "Grade",
                 font: {
-                    family: "Space Grotesk, sans-serif",
+                    family: "Inter, sans-serif",
                     size: 18,
                     color: '#7f7f7f'
                 }
@@ -18,7 +18,7 @@ function plot_grade_dist(dt) {
             title: {
                 text: "Percentage of Students",
                 font: {
-                    family: "Space Grotesk, sans-serif",
+                    family: "Inter, sans-serif",
                     size: 18,
                     color: '#7f7f7f'
                 }
