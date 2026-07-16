@@ -636,9 +636,45 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
     margin-left: 0.4rem;
 }
 
-/* Full news page variant — roomier */
-.news-page .news-item { grid-template-columns: 1fr 130px; padding: 1.5rem 0; }
-.news-page .news-item .news-thumb { width: 130px; height: 92px; }
+/* Full news page variant — expanded text, larger images */
+.news-page .news-item {
+    grid-template-columns: 1fr 280px;
+    gap: 2.5rem;
+    padding: 2.25rem 0;
+}
+
+.news-page .news-item .news-thumb {
+    width: 280px;
+    height: 190px;
+    border-radius: var(--radius);
+}
+
+.news-page .news-title {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin: 0.2rem 0 0.5rem;
+}
+
+.news-page .news-title .flag { margin-left: 0.5rem; vertical-align: -1px; }
+
+.news-page .news-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .news-page .news-item { grid-template-columns: 1fr; gap: 1rem; }
+    .news-page .news-item .news-thumb {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 2;
+        order: -1;
+    }
+}
 
 /* ── Publications ───────────────────────────────────────────────────────── */
 .pub-list {
