@@ -1,7 +1,7 @@
 /* ==========================================================================
    Jibesh Patra — personal academic site
    Design: editorial academic. White canvas, slate ink, blue accent, hairline rules,
-   Newsreader (display serif) + Inter (body) + JetBrains Mono (meta).
+   Libre Caslon Display/Text (headlines & body) + Josefin Sans (labels), New Yorker-inspired.
    ========================================================================== */
 
 /* ── Tokens ─────────────────────────────────────────────────────────────── */
@@ -18,8 +18,9 @@
     --accent-strong: #16389C;
     --accent-tint: #EBF2FE;
     --footer-bg: #0C1B33;
-    --serif: "Newsreader", Georgia, serif;
-    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --display: "Libre Caslon Display", "Libre Caslon Text", Georgia, serif;
+    --serif: "Libre Caslon Text", Georgia, serif;
+    --sans: "Josefin Sans", "Futura", -apple-system, sans-serif;
     --mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
     --content-width: 1140px;
     --narrow-width: 860px;
@@ -39,10 +40,10 @@ body {
     margin: 0;
     background-color: var(--paper);
     color: var(--ink);
-    font-family: var(--sans);
-    font-size: 1.0625rem;   /* 17px */
+    font-family: var(--serif);
+    font-size: 1.075rem;   /* ~17px; Caslon runs small */
     font-weight: 400;
-    line-height: 1.65;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
@@ -82,8 +83,8 @@ a:hover {
 
 /* ── Typography ─────────────────────────────────────────────────────────── */
 h1, h2, h3 {
-    font-family: var(--serif);
-    font-weight: 600;
+    font-family: var(--display);
+    font-weight: 400;
     line-height: 1.15;
     color: var(--ink);
     margin: 0 0 0.75rem;
@@ -104,7 +105,7 @@ h4 { font-size: 1.05rem; }
 /* Small uppercase label above section headings */
 .kicker {
     display: block;
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.16em;
@@ -135,7 +136,7 @@ h4 { font-size: 1.05rem; }
 .text-muted { color: var(--muted); }
 
 .mono-meta {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.78rem;
     letter-spacing: 0.02em;
     color: var(--muted);
@@ -228,7 +229,7 @@ h4 { font-size: 1.05rem; }
 }
 
 .site-nav a {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.92rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -273,12 +274,12 @@ h4 { font-size: 1.05rem; }
 
 .hero h1 {
     font-size: clamp(2.6rem, 6vw, 3.9rem);
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 1rem;
 }
 
 .hero .hero-role {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -350,7 +351,7 @@ table.table {
 }
 
 table.table thead th {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -394,7 +395,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 }
 
 .course-list .course-session {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.75rem;
     color: var(--muted);
     letter-spacing: 0.02em;
@@ -402,7 +403,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 }
 
 .course-list .course-id {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.75rem;
     color: var(--faint);
 }
@@ -421,7 +422,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 .more-link {
     display: inline-block;
     margin-top: 1rem;
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.78rem;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -490,7 +491,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 }
 
 .timeline .timeline-meta {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.75rem;
     color: var(--muted);
     margin: 0 0 0.1rem;
@@ -533,7 +534,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 
 /* Professional activities grouped by year */
 .activity-year {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -579,7 +580,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 }
 
 .news-item .news-date {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.72rem;
     color: var(--faint);
     letter-spacing: 0.03em;
@@ -607,7 +608,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 
 .news-item details summary::after {
     content: "+";
-    font-family: var(--mono);
+    font-family: var(--sans);
     color: var(--accent);
     margin-left: 0.45rem;
 }
@@ -650,7 +651,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 }
 
 .pub-year {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--faint);
@@ -658,9 +659,9 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 }
 
 .pub-title {
-    font-family: var(--serif);
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-family: var(--display);
+    font-size: 1.35rem;
+    font-weight: 400;
     line-height: 1.3;
     margin: 0 0 0.35rem;
 }
@@ -688,7 +689,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.74rem;
     font-weight: 500;
     letter-spacing: 0.07em;
@@ -712,7 +713,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.74rem;
     font-weight: 500;
     letter-spacing: 0.07em;
@@ -749,7 +750,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 
 /* Venue rating — deliberately quiet */
 .badge-rating {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.72rem;
     letter-spacing: 0.03em;
     color: var(--faint);
@@ -768,7 +769,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 
 /* ── Research group / members ───────────────────────────────────────────── */
 .subsection-head {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.74rem;
     font-weight: 500;
     letter-spacing: 0.14em;
@@ -813,7 +814,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 .member-list .member-name a:hover { text-decoration: underline; }
 
 .member-list .member-meta {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.72rem;
     color: var(--muted);
     margin: 0;
@@ -851,7 +852,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 
 .topic-tags li {
     margin: 0;
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.76rem;
     font-weight: 500;
     letter-spacing: 0.04em;
@@ -899,7 +900,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 .profile-card h2 { margin-bottom: 0.2rem; }
 
 .profile-card .profile-position {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.78rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -935,7 +936,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 }
 
 .site-footer .footer-brand {
-    font-family: var(--serif);
+    font-family: var(--display);
     font-size: 1.35rem;
     font-weight: 400;
     letter-spacing: 0.04em;
@@ -967,7 +968,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 .site-footer .footer-address-indent { padding-left: 1.3em; }
 
 .site-footer .footer-section-heading {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.16em;
@@ -1000,7 +1001,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     padding: 1rem 0;
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.72rem;
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.4);
@@ -1019,9 +1020,9 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
 .course-page h4 {
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
-    font-family: var(--serif);
+    font-family: var(--display);
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .plot_img { width: 35%; }
@@ -1054,13 +1055,13 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
     font-size: 1.15rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-weight: 500;
     margin: 0;
 }
 
 .album-count {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.75rem;
     color: var(--faint);
     letter-spacing: 0.05em;
@@ -1153,7 +1154,7 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 0.72rem;
     letter-spacing: 0.04em;
     padding: 4px 10px;
