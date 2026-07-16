@@ -888,7 +888,8 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    row-gap: 0.5rem;
+    column-gap: 1.6rem;
+    row-gap: 0.55rem;
     margin: 1.25rem 0 1.75rem;
     padding: 0;
     list-style: none;
@@ -905,11 +906,12 @@ tr.table-secondary { background: rgba(15, 23, 42, 0.025); }
     white-space: nowrap;
 }
 
-.topic-tags li + li::before {
+/* every topic carries its own marker so wrapped lines look identical */
+.topic-tags li::before {
     content: "·";
     color: var(--accent);
     font-weight: 400;
-    margin: 0 0.9rem;
+    margin-right: 0.55rem;
 }
 
 /* Callout box (e.g. PhD hiring note) */
