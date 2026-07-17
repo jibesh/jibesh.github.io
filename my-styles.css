@@ -889,7 +889,7 @@ tr.table-secondary { background: rgba(0, 0, 0, 0.03); }
 
 .member-list li {
     display: grid;
-    grid-template-columns: 48px minmax(150px, 1.2fr) minmax(110px, 0.9fr) minmax(0, 1.6fr);
+    grid-template-columns: minmax(48px, max-content) minmax(150px, 1.2fr) minmax(110px, 0.9fr) minmax(0, 1.6fr);
     gap: 1.1rem;
     align-items: center;
     padding: 0.85rem 0.25rem;
@@ -904,6 +904,14 @@ tr.table-secondary { background: rgba(0, 0, 0, 0.03); }
     border-radius: 50%;
     filter: grayscale(100%);
     border: 1px solid var(--line-strong);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.3s ease, filter 0.3s ease;
+}
+
+.member-list li:hover .member-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 8px;
+    filter: none;
 }
 
 .member-list .member-name {
@@ -914,6 +922,24 @@ tr.table-secondary { background: rgba(0, 0, 0, 0.03); }
 
 .member-list .member-name a { text-decoration: none; }
 .member-list .member-name a:hover { text-decoration: underline; }
+
+.member-list .member-summary {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-top: 0;
+    line-height: 1.45;
+    font-weight: 400;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+}
+
+.member-list li:hover .member-summary {
+    max-height: 80px;
+    opacity: 1;
+    margin-top: 0.35rem;
+}
 
 .member-list .member-meta {
     font-family: var(--sans);
@@ -932,14 +958,54 @@ tr.table-secondary { background: rgba(0, 0, 0, 0.03); }
 
 @media (max-width: 760px) {
     .member-list li {
-        grid-template-columns: 48px 1fr;
+        grid-template-columns: minmax(48px, max-content) 1fr;
         grid-template-areas: "photo name" "photo meta" ". desc";
         row-gap: 0.15rem;
     }
     .member-list .member-photo { grid-area: photo; align-self: start; }
     .member-list .member-name { grid-area: name; }
+    .member-list .member-info { grid-area: name; }
     .member-list .member-meta { grid-area: meta; }
     .member-list .member-desc { grid-area: desc; }
+}
+
+/* Current members list (3 columns: photo, name, duration) */
+.member-list.current-member-list li {
+    grid-template-columns: minmax(56px, max-content) 1.2fr minmax(120px, 0.8fr);
+    padding: 1rem 0.25rem;
+}
+
+.member-list.current-member-list .member-photo {
+    width: 56px;
+    height: 56px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.3s ease, filter 0.3s ease;
+}
+
+.member-list.current-member-list li:hover .member-photo {
+    width: 112px;
+    height: 112px;
+    border-radius: 12px;
+    filter: none;
+}
+
+.member-list.current-member-list .member-name {
+    font-size: 1.12rem;
+}
+
+.member-list.current-member-list .member-meta {
+    font-size: 1.0rem;
+    text-align: right;
+}
+
+@media (max-width: 760px) {
+    .member-list.current-member-list li {
+        grid-template-columns: minmax(56px, max-content) 1fr;
+        grid-template-areas: "photo name" "photo meta";
+        row-gap: 0.25rem;
+    }
+    .member-list.current-member-list .member-meta {
+        text-align: left;
+    }
 }
 
 /* Topic tags on research page */
