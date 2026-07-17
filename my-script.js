@@ -86,3 +86,12 @@
     window.addEventListener('hashchange', syncActiveThumb);
     document.addEventListener('DOMContentLoaded', syncActiveThumb);
 })();
+
+// Expand news page images inline on click.
+(function () {
+    document.addEventListener('click', function (e) {
+        var thumb = e.target.closest('.news-page .news-thumb');
+        if (!thumb) return;
+        thumb.classList.toggle('expanded');
+    });
+})();
