@@ -485,3 +485,315 @@
         init();
     }
 })();
+
+// Ladybugs animation on Navbar
+(function () {
+    const LADYBUG_COUNT = 1;
+    const SVG_CONTENT = `
+<svg width="11" height="11" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="overflow: visible; display: block;">
+  <line class="leg" x1="2" y1="4" x2="10" y2="8" stroke="#111" stroke-width="0.8"/>
+  <line class="leg" x1="10" y1="4" x2="2" y2="8" stroke="#111" stroke-width="0.8"/>
+  <line class="leg" x1="1" y1="6" x2="11" y2="6" stroke="#111" stroke-width="0.8"/>
+  
+  <circle cx="6" cy="6.5" r="4.2" fill="#111"/>
+  <circle cx="6" cy="2" r="1.8" fill="#111"/>
+  <path d="M 5 1.2 Q 4 0.5 4.5 -0.5 M 7 1.2 Q 8 0.5 7.5 -0.5" stroke="#111" stroke-width="0.5" fill="none"/>
+  
+  <g class="wing left-wing" style="transform-origin: 6px 3px; transition: transform 0.1s ease;">
+    <path d="M 6 3 C 3.5 3, 2 5.5, 2 8 C 2 10.5, 4.5 11, 6 11 Z" fill="#e41613"/>
+    <circle cx="4.2" cy="5.5" r="0.6" fill="#111"/>
+    <circle cx="3.8" cy="8.2" r="0.65" fill="#111"/>
+    <circle cx="5.1" cy="9.8" r="0.5" fill="#111"/>
+  </g>
+  
+  <g class="wing right-wing" style="transform-origin: 6px 3px; transition: transform 0.1s ease;">
+    <path d="M 6 3 C 8.5 3, 10 5.5, 10 8 C 10 10.5, 7.5 11, 6 11 Z" fill="#e41613"/>
+    <circle cx="7.8" cy="5.5" r="0.6" fill="#111"/>
+    <circle cx="8.2" cy="8.2" r="0.65" fill="#111"/>
+    <circle cx="6.9" cy="9.8" r="0.5" fill="#111"/>
+  </g>
+</svg>
+`;
+
+    function init() {
+        const header = document.querySelector('.site-header');
+        if (!header) return;
+
+        // Inject Styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .ladybug-container {
+                position: absolute;
+                width: 11px;
+                height: 11px;
+                pointer-events: auto;
+                cursor: pointer;
+                z-index: 1000;
+                transform-origin: center center;
+                will-change: transform, left, top;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .ladybug-container svg {
+                width: 100%;
+                height: 100%;
+                transform-origin: center center;
+            }
+            .ladybug-container.flying .left-wing {
+                animation: ladybug-left-wing-flutter 0.04s infinite alternate linear;
+            }
+            .ladybug-container.flying .right-wing {
+                animation: ladybug-right-wing-flutter 0.04s infinite alternate linear;
+            }
+            .ladybug-container.sitting .left-wing,
+            .ladybug-container.sitting .right-wing {
+                transform: rotate(0deg);
+            }
+            .ladybug-container.sitting .leg {
+                animation: ladybug-leg-wiggle 0.25s infinite alternate ease-in-out;
+            }
+            @keyframes ladybug-left-wing-flutter {
+                0% { transform: rotate(-10deg); }
+                100% { transform: rotate(-45deg); }
+            }
+            @keyframes ladybug-right-wing-flutter {
+                0% { transform: rotate(10deg); }
+                100% { transform: rotate(45deg); }
+            }
+            @keyframes ladybug-leg-wiggle {
+                0% { transform: skewX(-2deg); }
+                100% { transform: skewX(2deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        const bugs = [];
+
+        function chooseNewTarget(bug) {
+            const links = header.querySelectorAll('.site-nav a');
+            const hRect = header.getBoundingClientRect();
+            const inner = header.querySelector('.header-inner');
+            const innerRect = inner ? inner.getBoundingClientRect() : hRect;
+            const relativeLeft = innerRect.left - hRect.left;
+            const relativeTop = innerRect.top - hRect.top;
+
+            // 70% chance to sit on a link, 30% chance to fly around the center menu
+            if (links.length > 0 && Math.random() < 0.7) {
+                // Filter links to find nearby ones
+                const candidateLinks = [];
+                let closestLink = null;
+                let minLinkDist = Infinity;
+
+                links.forEach(link => {
+                    const rect = link.getBoundingClientRect();
+                    const linkCenterX = rect.left + rect.width / 2 - hRect.left;
+                    const dist = Math.abs(linkCenterX - bug.x);
+                    
+                    if (dist < minLinkDist) {
+                        minLinkDist = dist;
+                        closestLink = link;
+                    }
+                    if (dist < 140) {
+                        candidateLinks.push(link);
+                    }
+                });
+
+                // Pick from nearby links; fallback to the single closest link
+                const linksToUse = candidateLinks.length > 0 ? candidateLinks : (closestLink ? [closestLink] : Array.from(links));
+                const link = linksToUse[Math.floor(Math.random() * linksToUse.length)];
+                const rect = link.getBoundingClientRect();
+                
+                const linkLeft = rect.left - hRect.left;
+                const linkTop = rect.top - hRect.top;
+                
+                // Sit near the text on the link
+                bug.tx = linkLeft + Math.random() * rect.width;
+                bug.ty = linkTop + rect.height / 2 + (Math.random() - 0.5) * 6;
+                bug.targetLink = link;
+            } else {
+                // Fly to random point near the bug (short flight within .header-inner bounds)
+                const maxOffset = 70;
+                const offsetX = (Math.random() - 0.5) * maxOffset * 2;
+                const offsetY = (Math.random() - 0.5) * 20;
+
+                bug.tx = Math.max(relativeLeft, Math.min(relativeLeft + innerRect.width, bug.x + offsetX));
+                bug.ty = Math.max(relativeTop, Math.min(relativeTop + innerRect.height, bug.y + offsetY));
+                bug.targetLink = null;
+            }
+
+            bug.state = 'flying';
+            bug.dom.classList.remove('sitting');
+            bug.dom.classList.add('flying');
+        }
+
+        // Spawn bugs (with isFirstFrame flag, to set position on the first requestAnimationFrame render)
+        for (let i = 0; i < LADYBUG_COUNT; i++) {
+            const dom = document.createElement('div');
+            dom.className = 'ladybug-container flying';
+            dom.innerHTML = SVG_CONTENT;
+            header.appendChild(dom);
+
+            const bug = {
+                x: 0,
+                y: 0,
+                tx: 0,
+                ty: 0,
+                angle: 0,
+                state: 'flying',
+                timer: 0,
+                targetLink: null,
+                dom: dom,
+                wingTimer: Math.random() * 100,
+                isFirstFrame: true
+            };
+
+            dom.addEventListener('mouseenter', () => {
+                if (bug.state === 'sitting') {
+                    chooseNewTarget(bug);
+                }
+            });
+
+            bugs.push(bug);
+        }
+
+        // Scare bugs on link hover
+        const links = header.querySelectorAll('.site-nav a');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                bugs.forEach(bug => {
+                    if (bug.state === 'sitting' && bug.targetLink === link) {
+                        chooseNewTarget(bug);
+                    }
+                });
+            });
+        });
+
+        // Scare bugs on window resize
+        window.addEventListener('resize', () => {
+            bugs.forEach(bug => {
+                if (bug.state === 'sitting') {
+                    chooseNewTarget(bug);
+                }
+            });
+        });
+
+        // Animation loop
+        let lastTime = performance.now();
+        function update(now) {
+            const deltaTime = now - lastTime;
+            lastTime = now;
+
+            const hRect = header.getBoundingClientRect();
+            
+            bugs.forEach(bug => {
+                if (bug.isFirstFrame) {
+                    bug.isFirstFrame = false;
+                    const links = header.querySelectorAll('.site-nav a');
+                    const inner = header.querySelector('.header-inner');
+                    const innerRect = inner ? inner.getBoundingClientRect() : hRect;
+                    const relativeLeft = innerRect.left - hRect.left;
+                    const relativeTop = innerRect.top - hRect.top;
+                    
+                    if (links.length > 0) {
+                        const link = links[Math.floor(Math.random() * links.length)];
+                        const rect = link.getBoundingClientRect();
+                        const linkLeft = rect.left - hRect.left;
+                        const linkTop = rect.top - hRect.top;
+
+                        bug.tx = linkLeft + Math.random() * rect.width;
+                        bug.ty = linkTop + rect.height / 2 + (Math.random() - 0.5) * 6;
+                        bug.targetLink = link;
+
+                        const spawnOffsetDir = Math.random() < 0.5 ? -1 : 1;
+                        bug.x = bug.tx + spawnOffsetDir * (20 + Math.random() * 15);
+                        bug.y = bug.ty + (Math.random() - 0.5) * 10;
+                        bug.angle = Math.atan2(bug.ty - bug.y, bug.tx - bug.x);
+                    } else {
+                        bug.tx = relativeLeft + innerRect.width / 2;
+                        bug.ty = relativeTop + innerRect.height / 2;
+                        bug.x = bug.tx - 25;
+                        bug.y = bug.ty + 5;
+                        bug.angle = Math.atan2(bug.ty - bug.y, bug.tx - bug.x);
+                    }
+                }
+
+                if (bug.state === 'flying') {
+                    const dx = bug.tx - bug.x;
+                    const dy = bug.ty - bug.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 4) {
+                        // Land or start resting
+                        if (bug.targetLink) {
+                            bug.state = 'sitting';
+                            bug.x = bug.tx;
+                            bug.y = bug.ty;
+                            bug.dom.classList.remove('flying');
+                            bug.dom.classList.add('sitting');
+                            // Sit for 25 to 55 seconds (fly very infrequently)
+                            bug.timer = 25000 + Math.random() * 30000;
+                            // Angle points random direction when sitting
+                            bug.angle = Math.random() * Math.PI * 2;
+                        } else {
+                            // Brief rest in header space or pick new target immediately
+                            if (Math.random() < 0.4) {
+                                bug.state = 'sitting';
+                                bug.x = bug.tx;
+                                bug.y = bug.ty;
+                                bug.dom.classList.remove('flying');
+                                bug.dom.classList.add('sitting');
+                                // Sit for 15 to 30 seconds
+                                bug.timer = 15000 + Math.random() * 15000;
+                            } else {
+                                chooseNewTarget(bug);
+                            }
+                        }
+                    } else {
+                        // Fly speed (slightly faster so it lands quickly)
+                        const maxSpeed = 0.85;
+                        const speed = Math.min(maxSpeed, 0.25 + dist * 0.035);
+
+                        // Organic buzz vibration noise (perpendicular to movement direction)
+                        bug.wingTimer += 0.14;
+                        const buzzAmp = 0.25;
+                        const buzzX = -Math.sin(bug.angle) * Math.sin(bug.wingTimer) * buzzAmp;
+                        const buzzY = Math.cos(bug.angle) * Math.sin(bug.wingTimer) * buzzAmp;
+
+                        bug.x += (dx / dist) * speed + buzzX;
+                        bug.y += (dy / dist) * speed + buzzY;
+
+                        // Smooth rotation towards target (faster turn rate so it lands quickly on short paths)
+                        const targetAngle = Math.atan2(dy, dx);
+                        let angleDiff = targetAngle - bug.angle;
+                        while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+                        while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+                        bug.angle += angleDiff * 0.095;
+                    }
+                } else if (bug.state === 'sitting') {
+                    bug.timer -= deltaTime;
+                    if (bug.timer <= 0) {
+                        chooseNewTarget(bug);
+                    }
+                }
+
+                // Render
+                bug.dom.style.left = bug.x + 'px';
+                bug.dom.style.top = bug.y + 'px';
+                const deg = (bug.angle * 180 / Math.PI) + 90;
+                bug.dom.style.transform = `translate(-50%, -50%) rotate(${deg}deg)`;
+            });
+
+            requestAnimationFrame(update);
+        }
+
+        requestAnimationFrame(update);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+

@@ -215,7 +215,11 @@ h4 { font-size: 1.05rem; }
 
 .page-brand .brand-family { font-weight: 700; }
 
-.brand-dot { color: var(--accent); }
+.brand-dot {
+    color: var(--accent);
+    font-size: clamp(2.8rem, 6.5vw, 4rem);
+    line-height: 1;
+}
 
 /* Lists that open a page right under the brand: avoid a doubled rule */
 .page-brand + .pub-list,
