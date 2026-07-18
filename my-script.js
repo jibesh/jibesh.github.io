@@ -184,26 +184,6 @@
             worm.targetY = waypoints[0].y;
         }
 
-        // Sparkle particles list
-        let sparkles = [];
-
-        function spawnSparkles(x, y, count = 2) {
-            for (let i = 0; i < count; i++) {
-                const angle = Math.random() * Math.PI * 2;
-                const distance = Math.random() * 30;
-                sparkles.push({
-                    x: x + Math.cos(angle) * distance,
-                    y: y + Math.sin(angle) * distance,
-                    vx: (Math.random() - 0.5) * 1.5,
-                    vy: (Math.random() - 0.5) * 1.5 - 0.5, // slight upward float
-                    size: Math.random() * 4 + 2,
-                    maxSize: Math.random() * 8 + 4,
-                    opacity: 1,
-                    decay: Math.random() * 0.02 + 0.015
-                });
-            }
-        }
-
         img.onload = function () {
             if (imgLoaded) return;
             imgLoaded = true;
@@ -224,25 +204,17 @@
             }
         }
 
-        // Handle Mouse Events
-        canvas.addEventListener('mouseenter', function (e) {
-            isHovered = true;
-            scareWorm(e);
-        });
-
-        canvas.addEventListener('mousemove', function (e) {
-            if (!isHovered) isHovered = true;
-            // Get mouse position relative to canvas coordinate system
-            const rect = canvas.getBoundingClientRect();
-            const mouseX = ((e.clientX - rect.left) / rect.width) * canvasWidth;
-            const mouseY = ((e.clientY - rect.top) / rect.height) * canvasHeight;
-            spawnSparkles(mouseX, mouseY, 2);
-            scareWorm(e);
-        });
-
-        canvas.addEventListener('mouseleave', function () {
-            isHovered = false;
-        });
+        // Bind event to DEBUG button
+        const debugBtn = document.getElementById('hero-portrait-debug-btn');
+        if (debugBtn) {
+            debugBtn.addEventListener('click', function (e) {
+                scareWorm(e);
+                // Hide button after click
+                debugBtn.style.opacity = '0';
+                debugBtn.style.visibility = 'hidden';
+                debugBtn.style.pointerEvents = 'none';
+            });
+        }
 
         function scareWorm(e) {
             if (worm.isLeaving) return;
@@ -253,8 +225,11 @@
 
             // Choose the closest edge to exit quickly
             const rect = canvas.getBoundingClientRect();
-            const mouseX = ((e.clientX - rect.left) / rect.width) * canvasWidth;
-            const mouseY = ((e.clientY - rect.top) / rect.height) * canvasHeight;
+            const clientX = (e && typeof e.clientX === 'number') ? e.clientX : (rect.left + rect.width / 2);
+            const clientY = (e && typeof e.clientY === 'number') ? e.clientY : (rect.top + rect.height / 2);
+
+            const mouseX = ((clientX - rect.left) / rect.width) * canvasWidth;
+            const mouseY = ((clientY - rect.top) / rect.height) * canvasHeight;
 
             const distLeft = worm.x + 50;
             const distRight = (canvasWidth - worm.x) + 50;
@@ -285,19 +260,8 @@
         }
 
         function update() {
-            // 1. Update Sparkles
-            for (let i = sparkles.length - 1; i >= 0; i--) {
-                const s = sparkles[i];
-                s.x += s.vx;
-                s.y += s.vy;
-                s.opacity -= s.decay;
-                if (s.opacity <= 0) {
-                    sparkles.splice(i, 1);
-                }
-            }
-
-            // If hovered, restore / heal the portrait
-            if (isHovered) {
+            // If debugging (worm is leaving), restore / heal the portrait
+            if (worm.isLeaving) {
                 // Shrink the eaten trail radius slowly (heal effect)
                 eatenTrail.forEach(bite => {
                     if (bite.radius > 0) {
@@ -512,33 +476,6 @@
                 }
                 ctx.restore();
             }
-
-
-
-            // Draw Sparkles (glowing stars)
-            if (sparkles.length > 0) {
-                sparkles.forEach(s => {
-                    drawSparkle(ctx, s.x, s.y, s.size, s.opacity);
-                });
-            }
-        }
-
-        function drawSparkle(ctx, x, y, size, opacity) {
-            ctx.save();
-            ctx.globalAlpha = opacity;
-            ctx.fillStyle = 'rgba(255, 240, 150, ' + opacity + ')';
-            ctx.shadowColor = 'rgba(255, 215, 0, 0.8)';
-            ctx.shadowBlur = 6;
-            
-            ctx.beginPath();
-            ctx.moveTo(x, y - size);
-            ctx.quadraticCurveTo(x, y, x + size, y);
-            ctx.quadraticCurveTo(x, y, x, y + size);
-            ctx.quadraticCurveTo(x, y, x - size, y);
-            ctx.quadraticCurveTo(x, y, x, y - size);
-            ctx.closePath();
-            ctx.fill();
-            ctx.restore();
         }
     }
 

@@ -277,7 +277,9 @@ h4 { font-size: 1.05rem; }
 
 .hero h1 {
     font-size: clamp(2.6rem, 6vw, 3.9rem);
-    font-weight: 700;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     margin-bottom: 1rem;
 }
 
@@ -315,6 +317,40 @@ h4 { font-size: 1.05rem; }
     height: 100%;
     display: block;
     border-radius: var(--radius-lg);
+}
+
+#hero-portrait-debug-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent);
+    color: #FFFFFF;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s, background-color 0.2s;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.hero-portrait-slices:hover #hero-portrait-debug-btn {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#hero-portrait-debug-btn:hover {
+    background: var(--accent-strong);
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
 @media (max-width: 900px) {
