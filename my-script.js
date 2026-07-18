@@ -110,7 +110,6 @@
         const imgSrc = isMobile ? canvas.getAttribute('data-mobile') : canvas.getAttribute('data-desktop');
 
         const img = new Image();
-        img.src = imgSrc;
 
         let canvasWidth = 368;
         let canvasHeight = 654;
@@ -206,16 +205,23 @@
         }
 
         img.onload = function () {
+            if (imgLoaded) return;
             imgLoaded = true;
             initWorm();
             requestAnimationFrame(tick);
         };
+        img.onerror = function () {
+            console.error("Failed to load hero portrait: " + imgSrc);
+        };
+        img.src = imgSrc;
 
         // If cached/already loaded
-        if (img.complete) {
-            imgLoaded = true;
-            initWorm();
-            requestAnimationFrame(tick);
+        if (img.complete || img.naturalWidth > 0) {
+            if (!imgLoaded) {
+                imgLoaded = true;
+                initWorm();
+                requestAnimationFrame(tick);
+            }
         }
 
         // Handle Mouse Events
