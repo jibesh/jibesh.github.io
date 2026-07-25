@@ -306,6 +306,190 @@ h4 { font-size: 1.05rem; }
     max-width: 60ch;
 }
 
+/* ── Job / PhD Callout ─────────────────────────────────────────────────── */
+.job-callout {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 2.25rem 0 0 0;
+    padding: 1.5rem 1.75rem;
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.job-callout-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+}
+
+.job-callout-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: none;
+    padding: 0;
+}
+
+.job-callout-badge i {
+    font-size: 0.85em;
+    color: var(--accent);
+}
+
+/* Two-column body: description/meta on the left, "offers" panel on the right */
+.job-callout-body {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 1.75rem 2rem;
+    align-items: stretch;
+    margin-bottom: 1.25rem;
+}
+
+.job-callout-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.job-callout-intro {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+}
+
+.job-callout-intro strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.job-callout-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 0.9rem;
+}
+
+.job-callout-offers {
+    margin-bottom: 0;
+    background: var(--paper);
+    padding: 1rem 1.15rem;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+}
+
+.job-callout-offers-heading {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+}
+
+.job-callout-offers-list {
+    margin: 0;
+    padding-left: 1.2rem;
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+}
+
+.job-callout-offers-list li {
+    margin-bottom: 0.35rem;
+    line-height: 1.5;
+}
+
+.job-callout-offers-list li:last-child {
+    margin-bottom: 0;
+}
+
+.job-callout-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+.job-callout-meta p {
+    margin: 0;
+}
+
+.job-callout-meta strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.job-callout-action-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--line);
+}
+
+.job-callout-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: var(--paper);
+    color: var(--ink-soft) !important;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.job-callout-btn i { color: var(--accent); }
+
+.job-callout-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent-strong) !important;
+    text-decoration: none;
+}
+
+.job-callout-deadline {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.job-callout-deadline i {
+    color: var(--accent);
+}
+
+/* Stack the callout into one column once the offers panel gets too narrow */
+@media (max-width: 900px) {
+    .job-callout-body {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .job-callout {
+        padding: 1.5rem 1.35rem;
+    }
+}
+
 .hero-portrait-slices {
     position: relative;
     width: 100%;
