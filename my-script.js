@@ -516,7 +516,7 @@
 `;
 
     function init() {
-        const header = document.querySelector('.site-header');
+        const header = document.querySelector('.site-header[data-with-bug="true"]');
         if (!header) return;
 
         // Inject Styles

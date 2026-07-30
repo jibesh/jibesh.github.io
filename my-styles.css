@@ -43,9 +43,9 @@ body {
     background-color: var(--paper);
     color: var(--ink);
     font-family: var(--serif);
-    font-size: clamp(1.125rem, 0.222vw + 1.056rem, 1.25rem);   /* 18–20px, as on cs.cornell.edu */
+    font-size: var(--body-font-size, clamp(1.125rem, 0.222vw + 1.056rem, 1.25rem));
     font-weight: 450;
-    line-height: 1.6;
+    line-height: var(--body-line-height, 1.6);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
@@ -87,10 +87,11 @@ a:hover {
 h1, h2, h3 {
     font-family: var(--display);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: var(--display-line-height, 1.15);
     color: var(--ink);
     margin: 0 0 0.75rem;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--display-letter-spacing, -0.01em);
+    text-transform: var(--display-transform, none);
 }
 
 h4, h5, h6 {
@@ -1283,7 +1284,7 @@ tr.table-secondary { background: rgba(0, 0, 0, 0.03); }
 
 /* ── Footer ─────────────────────────────────────────────────────────────── */
 .site-footer {
-    background: linear-gradient(90deg, var(--footer-bg), var(--accent-strong));
+    background: var(--footer-bg);
     color: rgba(255, 255, 255, 0.85);
     font-size: 0.92rem;
     margin-top: 5rem;
